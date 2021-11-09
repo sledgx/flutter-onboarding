@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_onboarding/data/onboarding.dart';
 import 'package:flutter_onboarding/screens/home.dart';
+import 'package:flutter_onboarding/utils/preferences.dart';
 import 'package:flutter_onboarding/utils/styles.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -16,17 +17,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingData(
       imagePath: 'assets/images/onboarding1.png',
       title: 'Connect people\naround the world',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
     ),
     OnboardingData(
       imagePath: 'assets/images/onboarding2.png',
       title: 'Get a new experience\nof imagination',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
     ),
     OnboardingData(
       imagePath: 'assets/images/onboarding3.png',
       title: 'Live your life smarter\nwith us!',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+      description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     )
   ];
   final PageController _pageController = PageController(initialPage: 0);
@@ -89,10 +93,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _gotoHome(String from) {
+  void _gotoHome(String action) {
+    PreferencesManager.setOnboardingViewed();
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen(title: 'Home from $from')),
+      MaterialPageRoute(
+        builder: (context) => HomeScreen(title: 'Home from $action button'),
+      ),
     );
   }
 

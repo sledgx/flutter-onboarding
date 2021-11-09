@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_onboarding/utils/preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -12,10 +13,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _counter = 0;
 
+  void _decrementCounter() {
+    setState(() {
+      if (_counter > 0) {
+        _counter--;
+      }
+    });
+  }
+
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      if (_counter < 100) {
+        _counter++;
+      }
     });
+  }
+
+  void _clearPreferences() {
+    PreferencesManager.unsetOnboardingViewed();
   }
 
   @override
@@ -35,13 +50,39 @@ class _HomeScreenState extends State<HomeScreen> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            const SizedBox(height: 35.0),
+            _counter >= 5
+                ? TextButton(
+                    onPressed: () => _clearPreferences(),
+                    child: const Text('Reset Preferences'),
+                  )
+                : const Text('Trick: at least 5 clicks are needed'),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            right: 10,
+            bottom: 100,
+            child: FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
+            ),
+          ),
+          Positioned(
+            right: 10,
+            bottom: 20,
+            child: FloatingActionButton(
+              onPressed: _decrementCounter,
+              tooltip: 'Decrement',
+              child: const Icon(Icons.remove),
+              backgroundColor: Colors.redAccent,
+            ),
+          ),
+        ],
       ),
     );
   }
