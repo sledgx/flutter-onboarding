@@ -60,12 +60,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           const SizedBox(height: 30.0),
           Text(
             page.title,
-            style: kTitleStyle,
+            style: kOnboardingTitleStyle,
           ),
           const SizedBox(height: 15.0),
           Text(
             page.description,
-            style: kDescriptionStyle,
+            style: kOnboardingDescriptionStyle,
           ),
         ],
       ),
@@ -96,7 +96,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _gotoHome(String action) {
     PreferencesManager.setOnboardingViewed();
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) => HomeScreen(title: 'Home from $action button'),
@@ -131,7 +131,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Container(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () => _gotoHome('Skip'),
+                    onPressed: () => _gotoHome('skip'),
                     child: const Text(
                       'Skip',
                       style: TextStyle(
@@ -203,7 +203,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               width: double.infinity,
               color: Colors.white,
               child: GestureDetector(
-                onTap: () => _gotoHome('Start'),
+                onTap: () => _gotoHome('start'),
                 child: const Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 30.0),

@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 10,
             bottom: 100,
             child: FloatingActionButton(
+              heroTag: 'increment',
               onPressed: _incrementCounter,
               tooltip: 'Increment',
               child: const Icon(Icons.add),
@@ -76,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 10,
             bottom: 20,
             child: FloatingActionButton(
+              heroTag: 'decrement',
               onPressed: _decrementCounter,
               tooltip: 'Decrement',
               child: const Icon(Icons.remove),

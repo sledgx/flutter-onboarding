@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding/screens/home.dart';
-import 'package:flutter_onboarding/screens/onboarding.dart';
-import 'package:flutter_onboarding/utils/preferences.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_onboarding/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,24 +11,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter Onboarding',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FutureBuilder<bool>(
-        future: () async {
-          return await PreferencesManager.getOnboardingViewed();
-        }(),
-        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          if (snapshot.hasData && snapshot.data == true) {
-            return const HomeScreen(title: 'Home from Main');
-          } else {
-            return const OnboardingScreen();
-          }
-        },
-      ),
+      home: const SplashScreen(),
     );
   }
 }
