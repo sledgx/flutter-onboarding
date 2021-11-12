@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_onboarding/data/onboarding.dart';
@@ -16,21 +17,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<OnboardingData> _pages = [
     OnboardingData(
       imagePath: 'assets/images/onboarding1.png',
-      title: 'Connect people\naround the world',
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+      title: 'onboarding.page1.title'.tr(),
+      description: 'onboarding.page1.description'.tr(),
     ),
     OnboardingData(
       imagePath: 'assets/images/onboarding2.png',
-      title: 'Get a new experience\nof imagination',
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+      title: 'onboarding.page2.title'.tr(),
+      description: 'onboarding.page2.description'.tr(),
     ),
     OnboardingData(
       imagePath: 'assets/images/onboarding3.png',
-      title: 'Live your life smarter\nwith us!',
-      description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+      title: 'onboarding.page3.title'.tr(),
+      description: 'onboarding.page3.description'.tr(),
     )
   ];
   final PageController _pageController = PageController(initialPage: 0);
@@ -93,13 +91,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _gotoHome(String action) {
+  void _gotoHome() {
     PreferencesManager.setOnboardingViewed();
 
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => HomeScreen(title: 'Home from $action button'),
+        builder: (context) => const HomeScreen(),
       ),
     );
   }
@@ -131,18 +129,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Container(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () => _gotoHome('skip'),
+                    onPressed: () => _gotoHome(),
                     child: const Text(
-                      'Skip',
+                      'generics.skip',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20.0,
                       ),
-                    ),
+                    ).tr(),
                   ),
                 ),
                 SizedBox(
-                  height: 580.0,
+                  height: 600.0,
                   child: PageView(
                     physics: const ClampingScrollPhysics(),
                     controller: _pageController,
@@ -172,16 +170,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               mainAxisSize: MainAxisSize.min,
-                              children: const <Widget>[
-                                Text(
-                                  'Next',
+                              children: <Widget>[
+                                const Text(
+                                  'generics.next',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22.0,
                                   ),
-                                ),
-                                SizedBox(width: 10.0),
-                                Icon(
+                                ).tr(),
+                                const SizedBox(width: 10.0),
+                                const Icon(
                                   Icons.arrow_forward,
                                   color: Colors.white,
                                   size: 30.0,
@@ -199,22 +197,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
       bottomSheet: _currentPage == _pages.length - 1
           ? Container(
-              height: 100.0,
+              height: 80.0,
               width: double.infinity,
               color: Colors.white,
               child: GestureDetector(
-                onTap: () => _gotoHome('start'),
-                child: const Center(
+                onTap: () => _gotoHome(),
+                child: Center(
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 30.0),
-                    child: Text(
-                      'Get started',
+                    padding: const EdgeInsets.only(bottom: 30.0),
+                    child: const Text(
+                      'generics.get_started',
                       style: TextStyle(
                         color: Color(0xFF5B16D0),
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
+                    ).tr(),
                   ),
                 ),
               ),

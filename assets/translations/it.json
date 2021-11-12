@@ -1,0 +1,30 @@
+{
+  "generics": {
+    "skip": "Salta",
+    "next": "Avanti",
+    "get_started": "Inizia",
+    "increment": "Incrementa",
+    "decrement": "Decrementa"
+  },
+  "onboarding": {
+    "page1": {
+      "title": "Collega le persone\nadi tutto il mondo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, integer lobortis ut risus italiano"
+    },
+    "page2": {
+      "title": "Ottieni una nuova esperienza\ndi immaginazione",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, praesent tincidunt eros tincidunt italiano"
+    },
+    "page3": {
+      "title": "Vivi la tua vita in modo più intelligente\ncon noi!",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, phasellus efficitur arcu eu italiano"
+    }
+  },
+  "home": {
+    "title": "Benvenuto",
+    "center_text": "Quante volte hai premuto il pulsante:",
+    "trick_text": "Trucco: servono almeno 5 click positivi per svelarlo!",
+    "reset_text": "Resetta le preferenze",
+    "select_language": "Seleziona la lingua:"
+  }
+}

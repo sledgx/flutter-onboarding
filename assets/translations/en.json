@@ -1,0 +1,30 @@
+{
+  "generics": {
+    "skip": "Skip",
+    "next": "Next",
+    "get_started": "Get started",
+    "increment": "Increment",
+    "decrement": "Decrement"
+  },
+  "onboarding": {
+    "page1": {
+      "title": "Connect people\naround the world",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, integer lobortis ut risus english"
+    },
+    "page2": {
+      "title": "Get a new experience\nof imagination",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, praesent tincidunt eros tincidunt english"
+    },
+    "page3": {
+      "title": "Live your life smarter\nwith us!",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, phasellus efficitur arcu eu english"
+    }
+  },
+  "home": {
+    "title": "Welcome",
+    "center_text": "You have pushed the button this many times:",
+    "trick_text": "Trick: at least 5 positive clicks are needed to reveal it!",
+    "reset_text": "Reset Preferences",
+    "select_language": "Select language:"
+  }
+}

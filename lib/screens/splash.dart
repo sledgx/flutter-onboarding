@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       context,
       MaterialPageRoute(builder: (context) {
         if (onboardingIsViewed) {
-          return const HomeScreen(title: 'Home from splash screen');
+          return const HomeScreen();
         } else {
           return const OnboardingScreen();
         }
