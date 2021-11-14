@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sledgx.app.flutter_onboarding">
    <application
-        android:label="flutter_onboarding"
+        android:label="Flutter Onboarding"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
