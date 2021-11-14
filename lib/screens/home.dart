@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_onboarding/screens/splash.dart';
 import 'package:flutter_onboarding/utils/preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,6 +31,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _clearPreferences() {
     PreferencesManager.unsetOnboardingViewed();
+  }
+
+  void _restart() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SplashScreen(),
+      ),
+    );
   }
 
   void _setLanguage(String languageCode) {
@@ -66,6 +76,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ).tr(),
                   )
                 : const Text('home.trick_text').tr(),
+            _counter >= 5
+                ? TextButton.icon(
+                    onPressed: () => _restart(),
+                    icon: const Icon(Icons.reset_tv),
+                    label: const Text(
+                      'generics.restart',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
+                    ).tr(),
+                  )
+                : const Text(''),
             const SizedBox(height: 50.0),
             const Text(
               'home.select_language',

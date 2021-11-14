@@ -197,14 +197,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
       bottomSheet: _currentPage == _pages.length - 1
           ? Container(
-              height: 80.0,
+              height: 100.0,
               width: double.infinity,
               color: Colors.white,
               child: GestureDetector(
                 onTap: () => _gotoHome(),
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 30.0),
+                    padding: const EdgeInsets.only(bottom: 20.0),
                     child: const Text(
                       'generics.get_started',
                       style: TextStyle(

@@ -3,6 +3,7 @@
     "skip": "Skip",
     "next": "Next",
     "get_started": "Get started",
+    "restart": "Restart",
     "increment": "Increment",
     "decrement": "Decrement"
   },
