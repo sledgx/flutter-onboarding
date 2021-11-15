@@ -34,4 +34,8 @@ flutter build ios --release
 
 ## Author
 
-**SledGX**
+[SledGX](https://github.com/sledgx)
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/sledgx/flutter_onboarding/blob/master/LICENSE) for more information.
